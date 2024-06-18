@@ -16,7 +16,9 @@
 		<h1>Snickers</h1>
 		<div class="container_image">
 			<img src="../image/snickers.png"alt="image4"width="50%" height="auto">
-			<p>information</p>
+			<p><U>Ingrédients :</U></p>
+			<ul id="liste_ingredients"></ul>
+			</div>
 		</div>
 		<div class="container_down">
 			<a href="./cookie.html"><img src="./image/left-arrow - Copie.png"alt="home"></a>
@@ -35,7 +37,13 @@
 				return(response.json());
 
 			}).then(function (response){
-				console.log(response)
+				console.log(response.product.ingredients);
+				const list= document.querySelector("#liste_ingredients");
+				list.innerHTML= (response.product.ingredients).map(function(ingredient)
+				{
+					return `<li>${ingredient.text.replaceAll("_"," ")}</li>`;
+				}).join("")
+
 			});
 		</script>
 	</body>
