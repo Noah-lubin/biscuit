@@ -43,4 +43,5 @@ font-size: xx-large;
 .container_image {
     background-color: white;
     display: flex;
+    justify-content: space-around;
  }
