@@ -2,11 +2,6 @@ body {
     background-color: white;
 }
 
-.container {
-    
-    display: flex;
-    justify-content: center;
-}
 
 .container_item {
 background-color: white;
@@ -44,3 +39,9 @@ font-size: xx-large;
     justify-content: center;
     justify-content: space-evenly;
 }
+
+.container_image {
+    background-color: white;
+    display: flex;
+    width: 100%; height: auto;
+ }
