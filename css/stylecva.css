@@ -38,6 +38,7 @@ font-size: xx-large;
     display: flex ;
     justify-content: center;
     justify-content: space-evenly;
+    display: flex;
 }
 
 .container_image {
