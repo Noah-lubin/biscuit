@@ -35,7 +35,7 @@ font-size: xx-large;
 
 .container_down {
     background-color:white ;
-    display: flex;
+    display: flex ;
     justify-content: center;
     justify-content: space-evenly;
 }
