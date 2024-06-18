@@ -7,7 +7,12 @@
 			<a href="index.html"><div class="container_item"><img src="../image/home.png"alt="home"></div></a>
 			<div class="container_item">Creespy Biscuits</div>
 			<div class="container_item"><img src="../image/filtre.png"alt="filtre"></div>
-			<div class="container_item">4</div>
+			<div class="container_item">
+				<div action="">
+					<input type="search"/>
+					<input type="submit" value="ok" onclick="search()"/>
+				</div>
+			</div>
 		</div>
 		
 		<h1>Granola basique</h1>
@@ -16,8 +21,16 @@
 			<p>information</p>
 		</div>
 		<div class="container_down">
-			<img src="./image/left-arrow - Copie.png"alt="home">
-			<img src="../image/right-arrow.png"alt="home"></div>
+			<a href="./snickers.html"><img src="./image/left-arrow - Copie.png"alt="home"></a>
+			<a href="./napolitain.html"><img src="./image/right-arrow.png"alt="home"></a> 
+		</div>
+
+		<script>
+			console.log("hello!");
+			function search() {
+				console.log("search !");
+			}
+		</script>
 		
 	</body>
 </html>
