@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<link rel="stylesheet" href="../css/style.css">
+	<head>
+		<link rel="stylesheet" href="../css/style.css">
+		
+	</head>
 	<body>
 		<title>Creespy</title>
 		<div class="container">
-			<div class="container_item"><img src="../image/home.png"alt="home"></div>
-			<div class="container_item">Creespy Biscuits</div>
-			<div class="container_item"><img src="../image/filtre.png"alt="filtre"></div>
-			<div class="container_item">noah</div>
+			<div class="container_item 1"><img src="../image/home.png"alt="home"></div>
+			<div class="container_item 1">Creespy Biscuits</div>
+			<div class="container_item 1"><img src="../image/filtre.png"alt="filtre"></div>
+			<div class="container_item 1">
+				<div action="">
+					<input type="search"/>
+					<input type="submit" value="ok" onclick="search()"/>
+				</div>
+			</div>
 		</div>
-		<div class="container">2</div>
-		<div class="container">3</div>
+		<ul class="">
+			<li class="container_item 2">
+				<img src="???"alt="image biscuit" />
+				Nom du biscuit 1
+			</li>
+			<li class="container_item 2"><img src="???"alt="image biscuit">
+			Nom du biscuit 2</li>
+			<li class="container_item 2"><img src="???"alt="image biscuit">
+				Nom du biscuit 2</li>
+		</ul>
+		<script>
+			console.log("hello!");
+			function search() {
+				console.log("search !");
+			}
+		</script>
 	</body>
+</html>
