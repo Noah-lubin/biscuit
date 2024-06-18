@@ -1,0 +1,16 @@
+body {
+    background-color: white;
+}
+
+.container {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container_item {
+    background-color: white;
+font-family: Arial, Helvetica, sans-serif;
+font-size: xx-large;
+
+}
