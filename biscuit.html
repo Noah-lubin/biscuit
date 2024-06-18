@@ -30,6 +30,15 @@
 			function search() {
 				console.log("search !");
 			}
+
+			const url="https://world.openfoodfacts.org/api/v3/product/7622210601988.json";
+			fetch(url).then(function (response)
+			{
+				return(response.json());
+
+			}).then(function (response){
+				console.log(response)
+			});
 		</script>
 		
 	</body>
