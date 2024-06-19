@@ -8,12 +8,27 @@ font-size: xx-large;
 
 }
 
+.container_up {
+background-color: white;
+font-family: Arial, Helvetica, sans-serif;
+font-size: xx-large;
+display: flex ;
+align-items: space-evenly;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: x-large;
+}
+
+.container_header{
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 20px;
 }
 .list-item {
     display: flex;
@@ -23,6 +38,7 @@ font-size: xx-large;
     border: 5px solid black;
     border-radius: 40px;
     background-color: white;
+    margin-top: 50px;
     
 }
 .list-item img {

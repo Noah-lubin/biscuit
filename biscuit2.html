@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="./css/stylecva.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creespy</title>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html">
+            <div class="container_item">
+                <img src="../image/home.png" alt="home">
+            </div>
+        </a>
+        <div class="container_item">Creespy Biscuits</div>
+        <div class="container_item">
+            <form action="javascript:void(0);" onsubmit="search()">
+                <input type="search" id="search-bar" placeholder="Rechercher..." />
+                <input type="submit" value="ok" />
+            </form>
+        </div>
+    </div>
+    <h1>Biscuits</h1>
+    <div class="container_image">
+        <img src="../image/ber-ready.jpg" alt="image4" width="40%" height="auto">
+        <p><u>Ingrédients :</u></p>
+        <ul id="liste_ingredients"></ul><br>
+        <p><u>Allergènes :</u></p>
+        <ul id="liste_allergenes"></ul>
+    </div>
+    <div class="container_down">
+        <a href="./BN.html"><img src="./image/left-arrow - Copie.png" alt="home"></a>
+        <a href="./tuc.html"><img src="./image/right-arrow.png" alt="home"></a>
+    </div>
+
+    <div class="container" id="biscuit-list">
+        <div class="list-item">
+            <img src="../image/grannola.jpg" alt="Image" width="50%" height="auto">
+            <a href="./biscuit.html">Granola basique</a>
+        </div>
+        <div class="list-item">
+            <img src="../image/napolitain.jpg" alt="Image" width="50%" height="auto">
+            <a href="./napolitain.html">Napolitain</a>
+        </div>
+        <div class="list-item">
+            <img src="../image/granola.jpg" alt="Image" width="50%" height="auto">
+            <a href="./cookie.html">Cookie Granola</a>
+        </div>
+        <div class="list-item">
+            <img src="../image/snickers.png" alt="Image" width="50%" height="auto">
+            <a href="./snickers.html">Snickers</a>
+        </div>
+        <!-- Ajoutez plus d'éléments de biscuits ici -->
+    </div>
+
+    <!-- Section pour l'erreur 404 -->
+    <div id="error-page" style="display: none;">
+        <h2>Error 404, Not Found</h2>
+        <img src="../image/biscuit.gif" alt="Biscuit qui tourne">
+    </div>
+
+    <script>
+        function search() {
+            const query = document.getElementById('search-bar').value.toLowerCase();
+            const items = document.querySelectorAll('.list-item');
+            let found = false;
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = '';
+                    found = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            if (!found) {
+                showNotFoundError();
+            } else {
+                hideNotFoundError();
+            }
+        }
+
+        function showNotFoundError() {
+            document.getElementById('biscuit-list').style.display = 'none';
+            document.getElementById('error-page').style.display = 'block';
+        }
+
+        function hideNotFoundError() {
+            document.getElementById('biscuit-list').style.display = 'block';
+            document.getElementById('error-page').style.display = 'none';
+        }
+
+        const url = "https://world.openfoodfacts.org/api/v3/product/8000500310427.json";
+        fetch(url).then(function(response) {
+            return response.json();
+        }).then(function(response) {
+            console.log(response.product.ingredients);
+            const list = document.querySelector("#liste_ingredients");
+            list.innerHTML = (response.product.ingredients).map(function(ingredient) {
+                return `<li>${ingredient.text.replaceAll("_", " ")}</li>`;
+            }).join("");
+
+            const listAllergenes = document.querySelector("#liste_allergenes");
+            listAllergenes.innerHTML = (response.product.allergens_tags).map(function(allergen) {
+                return `<li>${allergen.replaceAll("en:", " ")}</li>`;
+            }).join("");
+        });
+    </script>
+</body>
+</html>

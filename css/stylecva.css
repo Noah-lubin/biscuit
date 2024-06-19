@@ -32,7 +32,10 @@ font-family: Arial, Helvetica, sans-serif;
     justify-content: space-between;
     margin-right: 5px;
     font-size: x-large;
+
  }
+ 
+
 
  /* Styles pour la section d'erreur 404 */
 #error-page {
