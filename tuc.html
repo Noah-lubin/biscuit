@@ -19,6 +19,8 @@
 			<img src="../image/tuc.jpg"alt="image2"width="40%" height="100%">
 			<p><U>Ingrédients :</U></p><br>
 			<ul id="liste_ingredients"></ul>
+			<p><U>allergènes :</U></p>
+			<ul id="liste_allergenes"></ul>
 			</div>
 		</div>
 		<div class="container_down">
@@ -32,7 +34,7 @@
 				console.log("search !");
 			}
 
-			const url="https://world.openfoodfacts.org/api/v3/product/5410041001204.json";
+			const url="https://world.openfoodfacts.org/api/v3/product/5410041435702.json";
 			fetch(url).then(function (response)
 			{
 				return(response.json());
@@ -43,6 +45,12 @@
 				list.innerHTML= (response.product.ingredients).map(function(ingredient)
 				{
 					return `<li>${ingredient.text.replaceAll("_"," ")}</li>`;
+				}).join("")
+
+				const listAllergenes= document.querySelector("#liste_allergenes");
+				listAllergenes.innerHTML= (response.product.allergens_tags).map(function(allergen)
+				{
+					return `<li>${allergen.replaceAll("en:"," ")}</li>`;
 				}).join("")
 
 			});
