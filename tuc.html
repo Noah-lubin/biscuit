@@ -13,18 +13,17 @@
 				</div>
 			</div>
 		</div>
-		<h1>Snickers</h1>
+		
+		<h1>BN</h1>
 		<div class="container_image">
-			<img src="../image/snickers.png"alt="image4"width="50%" height="auto">
-			<p><U>Ingrédients :</U></p>
-			<ul id="liste_ingredients"></ul><br>
-			<p><U>Allergens :</U></p>
-			<ul id="liste_allergenes"></ul>
+			<img src="../image/BN.jpg"alt="image2"width="60%" height="auto">
+			<p><U>Ingrédients :</U></p><br>
+			<ul id="liste_ingredients"></ul>
 			</div>
 		</div>
 		<div class="container_down">
-			<a href="./cookie.html"><img src="./image/left-arrow - Copie.png"alt="home"></a>
-			<a href="./prince.html"><img src="./image/right-arrow.png"alt="home"></a> 
+			<a href="./prince.html"><img src="./image/left-arrow - Copie.png"alt="home"></a>
+			<a href="./biscuit.html"><img src="./image/right-arrow.png"alt="home"></a> 
 		</div>
 
 		<script>
@@ -33,7 +32,7 @@
 				console.log("search !");
 			}
 
-			const url="https://world.openfoodfacts.org/api/v3/product/5000159461122.json";
+			const url="https://world.openfoodfacts.org/api/v3/product/3061990143365.json";
 			fetch(url).then(function (response)
 			{
 				return(response.json());
@@ -46,14 +45,8 @@
 					return `<li>${ingredient.text.replaceAll("_"," ")}</li>`;
 				}).join("")
 
-				const listAllergenes= document.querySelector("#liste_allergenes");
-				listAllergenes.innerHTML= (response.product.allergens_tags).map(function(allergen)
-				{
-					return `<li>${allergen.replaceAll("en:"," ")}</li>`;
-				}).join("")
-
 			});
-			
 		</script>
+		
 	</body>
 </html>
