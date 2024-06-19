@@ -35,3 +35,64 @@ font-size: xx-large;
     margin: 0;
 }
 
+/* Styles pour la section d'erreur 404 */
+#error-page {
+    text-align: center;
+    margin: 50px auto;
+}
+
+#error-page img {
+    width: 100px; /* Ajuste la taille du biscuit animé */
+}
+
+/* Style pour le conteneur de la barre de recherche */
+.container_item form {
+    display: flex;
+    align-items: center;
+}
+
+/* Style pour l'input de recherche */
+.container_item input[type="search"] {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    width: 250px; /* Ajuste la largeur selon tes besoins */
+}
+
+/* Style pour le conteneur de la barre de recherche */
+.container_item form {
+    display: flex;
+    align-items: center;
+}
+
+/* Style pour l'input de recherche */
+.container_item input[type="search"] {
+    padding: 12px 16px; /* Augmenté pour un meilleur espacement */
+    font-size: 18px; /* Légèrement augmenté pour la lisibilité */
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Arrondi un peu plus prononcé */
+    outline: none;
+    width: 300px; /* Augmenté pour une plus grande largeur */
+}
+
+/* Style pour le bouton "OK" */
+.container_item input[type="submit"] {
+    background-color: #ff0000; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none;
+    padding: 12px 24px; /* Augmenté pour correspondre à l'input */
+    margin-left: 10px; /* Légèrement augmenté pour un espacement */
+    border-radius: 25px; /* Arrondi un peu plus prononcé */
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover du bouton */
+.container_item input[type="submit"]:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+}
+
+
