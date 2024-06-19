@@ -19,6 +19,8 @@
 			<img src="../image/granola.jpg"alt="image3" width="60%" height="auto">
 			<p><U>Ingrédients :</U></p>
 			<ul id="liste_ingredients"></ul>
+			<p><U>allergènes :</U></p>
+			<ul id="liste_allergenes"></ul>
 			</div>
 		</div>
 		<div class="container_down">
@@ -39,10 +41,17 @@
 
 			}).then(function (response){
 				console.log(response);
-				const list= document.querySelector("#liste_ingredients");
-				list.innerHTML= (response.product.ingredients).map(function(ingredient)
+				// ingredients
+				const listIngredients= document.querySelector("#liste_ingredients");
+				listIngredients.innerHTML= (response.product.ingredients).map(function(ingredient)
 				{
 					return `<li>${ingredient.text.replaceAll("_"," ")}</li>`;
+				}).join("")
+				// allergènes
+				const listAllergenes= document.querySelector("#liste_allergenes");
+				listAllergenes.innerHTML= (response.product.allergens_tags).map(function(allergen)
+				{
+					return `<li>${allergen.replaceAll("en:"," ")}</li>`;
 				}).join("")
 
 			});
