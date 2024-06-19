@@ -20,6 +20,8 @@
 			<div>
 			<p><U>Ingrédients :</U></p>
 			<ul id="liste_ingredients"></ul>
+			<p><U>Allergens :</U></p>
+			<ul id="liste_allergenes"></ul>
 			</div>
 		</div>
 		<div class="container_down">
@@ -44,6 +46,12 @@
 				list.innerHTML= (response.product.ingredients).map(function(ingredient)
 				{
 					return `<li>${ingredient.text.replaceAll("_"," ")}</li>`;
+				}).join("")
+
+				const listAllergenes= document.querySelector("#liste_allergenes");
+				listAllergenes.innerHTML= (response.product.allergens_tags).map(function(allergen)
+				{
+					return `<li>${allergen.replaceAll("en:"," ")}</li>`;
 				}).join("")
 
 			});
