@@ -39,20 +39,22 @@
         <p><u>Allergènes :</u></p>
         <ul id="liste_allergenes"></ul>
         <div class="container_back star-rating" data-place-id="">
-            <div class="star cookienormale" data-value="1"></div>
-            <div class="star cookienormale" data-value="2"></div>
-            <div class="star cookiecroque" data-value="3"></div>
-            <div class="star" data-value="4"></div>
-            <div class="star" data-value="5"></div>
+            <div class="star note0_5 note1 note1_5 note2 note2_5 note3 note3_5 note4 note4_5 note5" data-value="1"></div>
+            <div class="star note1_5 note2 note2_5 note3 note3_5 note4 note4_5 note5" data-value="2"></div>
+            <div class="star note2_5 note3 note3_5 note4 note4_5 note5" data-value="3"></div>
+            <div class="star note3_5 note4 note4_5 note5" data-value="4"></div>
+            <div class="star note4_5 note5" data-value="5"></div>
         </div>
     </div>
     <!-- Fin de votre contenu existant -->
     <script>
+
         // Exemple de récupération des données d'un API (simulé)
         const url = "https://world.openfoodfacts.org/api/v3/product/8000500310427.json";
         fetch(url)
             .then(response => response.json())
             .then(response => {
+
                 const listIngredients = document.querySelector("#liste_ingredients");
                 listIngredients.innerHTML = response.product.ingredients.map(ingredient => {
                     return `<li>${ingredient.text.replaceAll("_", " ")}</li>`;
@@ -62,6 +64,19 @@
                 listAllergenes.innerHTML = response.product.allergens_tags.map(allergen => {
                     return `<li>${allergen.replaceAll("en:", " ")}</li>`;
                 }).join("");
+
+                // stars
+                const note = Math.min(5, Math.round(response.product.nutriments.sugars / 5)/2);
+                console.log(note);
+                // cookienormale, cookiecroque
+                const stars = document.querySelectorAll(".star.note"+note.toString().replace(".","_"));
+                stars.forEach((star, index) => {
+                    if (Math.floor(note) == note || index < note - 1) {
+                        star.classList.add("cookienormale");
+                    } else {
+                        star.classList.add("cookiecroque");
+                    }
+                });
             })
             .catch(error => console.error('Erreur lors du chargement des données:', error));
     </script>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="./css/stylecva.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creespy</title>
+</head>
+<body>
+    <div class="container_header">
+        <a href="index.html">
+            <div class="container_item">
+                <img src="../image/home.png" alt="home">
+            </div>
+        </a>
+        <a href="index.html">
+            <div class="container_item">
+                <img src="../image/title.png" alt="title" width="auto" height="75px">
+            </div>
+        </a>
+        <div class="container_item">
+            <form action="javascript:void(0);" onsubmit="onHandleSearch()">
+                <input type="search" id="search-bar" placeholder="Rechercher..." />
+                <input type="submit" value="ok" />
+            </form>
+        </div>
+        <div class="container_item">
+            <img src="../image/filtre.png" alt="filtre">
+        </div><br>
+    </div><br><br><br>
+
+    <h1 id="title"></h1>
+    <div class="container_image">
+        <img id="biscuit_img" />
+        <p><u>Ingrédients:</u></p>
+        <ul id="liste_ingredients"></ul>
+        <p><u>Allergènes:</u></p>
+        <ul id="liste_allergenes"></ul>
+    </div>
+    <div class="container_down">
+        <a href="./napolitain.html"><img src="./image/left-arrow - Copie.png" alt="previous"></a>
+        <a id="next-page-link" href="#"><img src="./image/right-arrow.png" alt="next"></a>
+    </div>
+
+    <script>
+        console.log("hello!");
+        function search() {
+            console.log("search!");
+        }
+
+        var searchParams = new URLSearchParams(window.location.search); // ?id=8000500310427
+        const id = searchParams.get("id");
+        const url = `https://world.openfoodfacts.org/api/v3/product/${id}.json`;
+
+        // Mapping des titres aux URLs correspondantes
+        const titleToUrlMapping = {
+            "Lulu L'Ourson Chocolat": "biscuittype.html?id=3048282322646",
+            "Title2": "page2.html",
+            "Title3": "page3.html",
+            // Ajoutez les autres titres et URLs ici jusqu'à 50
+            // ...
+            "Title50": "page50.html"
+        };
+
+        fetch(url)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(response) {
+                console.log(response);
+                // Titre
+                const name = document.querySelector("#title");
+                const productName = response.product.product_name;
+                name.innerHTML = productName;
+
+                // Image
+                const image_url = response.product.image_front_url;
+                const img = document.querySelector("#biscuit_img");
+                img.setAttribute("src", image_url);
+
+                // Ingrédients
+                const listIngredients = document.querySelector("#liste_ingredients");
+                listIngredients.innerHTML = (response.product.ingredients).map(function(ingredient) {
+                    return `<li>${ingredient.text.replaceAll("_", " ")}</li>`;
+                }).join("");
+
+                // Allergènes
+                const listAllergenes = document.querySelector("#liste_allergenes");
+                listAllergenes.innerHTML = (response.product.allergens_tags).map(function(allergen) {
+                    return `<li>${allergen.replaceAll("en:", " ")}</li>`;
+                }).join("");
+
+                // Redirection en fonction du titre
+                const nextPageLink = document.querySelector("#next-page-link");
+                const nextPageUrl = titleToUrlMapping[productName] || "default.html"; // URL par défaut si le titre n'est pas trouvé
+                nextPageLink.setAttribute("href", nextPageUrl);
+            });
+    </script>
+</body>
+</html>
