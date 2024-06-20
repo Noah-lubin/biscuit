@@ -1,89 +1,134 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="./css/stylecva.css">
-    <script>
-        // Fonction pour gérer la soumission du formulaire de recherche
-        function onHandleSearch() {
-            const searchBar = document.getElementById('search-bar');
-            const query = searchBar.value.trim();
-            if (query) {
-                // Rediriger vers une nouvelle URL avec le terme de recherche comme paramètre de requête
-                window.location.href = `index.html?search=${encodeURIComponent(query)}`;
-            }
-        }
-
-        // Code existant pour récupérer les informations du produit
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const searchParams = new URLSearchParams(window.location.search);
-            const id = searchParams.get("id");
-            if (id) {
-                const url = `https://world.openfoodfacts.org/api/v3/product/${id}.json`;
-                fetch(url).then(response => response.json()).then(response => {
-                    console.log(response);
-                    // title
-                    const name = document.querySelector("#title");
-                    name.innerHTML = response.product.product_name;
-
-                    // image
-                    const image_url = response.product.image_front_url;
-                    const img = document.querySelector("#biscuit_img");
-                    img.setAttribute("src", image_url);
-
-                    // ingredients
-                    const listIngredients = document.querySelector("#liste_ingredients");
-                    listIngredients.innerHTML = response.product.ingredients.map(ingredient => {
-                        return `<li>${ingredient.text.replaceAll("_", " ")}</li>`;
-                    }).join("");
-
-                    // allergènes
-                    const listAllergenes = document.querySelector("#liste_allergenes");
-                    listAllergenes.innerHTML = response.product.allergens_tags.map(allergen => {
-                        return `<li>${allergen.replaceAll("en:", " ")}</li>`;
-                    }).join("");
-                });
-            }
-        });
-    </script>
+<link rel="stylesheet" href="./css/stylecva.css">
 </head>
-<body>
-    <!-- head -->
-    <div class="container_header">
-        <a href="index.html">
-            <div class="container_item">
-                <img src="../image/home.png" alt="home">
-            </div>
-        </a>
-        <a href="index.html">
-            <div class="container_item">
-                <img src="../image/title.png" alt="title" width="auto" height="75px">
-            </div>
-        </a>
-        <div class="container_item">
-            <form onsubmit="onHandleSearch(); return false;">
-                <input type="search" id="search-bar" placeholder="Rechercher..." />
-                <input type="submit" value="ok" />
-            </form>
-        </div>
-        <div class="container_item">
-            <img src="../image/filtre.png" alt="filtre">
-        </div><br>
-    </div><br><br><br>
+<style>
+	.star-rating {
+		display: flex;
+		align-items: center;
+	}
 
-    <!-- titre -->
-    <h1 id="title"></h1>
-    <div class="container_image">
-        <img id="biscuit_img"/>
-        <!-- liste ingredients -->
-        <p><u>Ingrédients:</u></p>
-        <ul id="liste_ingredients"></ul>
-        <!-- liste allergenes -->
-        <p><u>allergènes:</u></p>
-        <ul id="liste_allergenes"></ul>
-    </div>
-    <div class="container_down">
-        <a href="./napolitain.html"><img src="./image/left-arrow - Copie.png" alt="home"></a>
-        <a href="./ours"><img src="./image/right-arrow.png" alt="home"></a> 
-    </div>
+	.star-rating .star {
+		width: 70px; /* Taille des étoiles */
+		height: 70px;
+		background-size: cover;
+		background-image: url('./image/cookievide.png'); /* Image de l'étoile vide */
+	}
+
+	.star-rating .star.cookienormale {
+		background-image: url('./image/cookienormal.png'); /* Image de l'étoile remplie */
+	}
+	.star-rating .star.cookiecroque {
+		background-image: url('./image/cookiecroque.png');
+	}
+</style>
+
+<body>
+<!-- head -->
+<div class="container_header">
+	<a href="index.html">
+		<div class="container_item">
+			<img src="../image/home.png" alt="home">
+		</div>
+	</a>
+	<a href="index.html">
+		<div class="container_item">
+			<img src="../image/title.png" alt="title" width="auto" height="75px">
+		</div>
+	</a>
+	<div class="container_item">
+		<form onsubmit="onHandleSearch(); return false;">
+			<input type="search" id="search-bar" placeholder="Rechercher..." />
+			<input type="submit" value="ok" />
+		</form>
+	</div>
+	<div class="container_item">
+		<img src="../image/filtre.png" alt="filtre">
+	</div><br>
+</div><br><br><br>
+
+<!-- titre -->
+<h1 id="title"></h1>
+<div class="container_image">
+	<img id="biscuit_img"/>
+	<!-- liste ingredients -->
+	<p><u>Ingrédients:</u></p>
+	<ul id="liste_ingredients"></ul>
+	<!-- liste allergenes -->
+	<p><u>allergènes:</u></p>
+	<ul id="liste_allergenes"></ul>
+</div>
+<div class="container_down">
+	<a href="./napolitain.html"><img src="./image/left-arrow - Copie.png" alt="home"></a>
+	<a href="./ours"><img src="./image/right-arrow.png" alt="home"></a> 
+</div>
+
+<div class="container_image">
+	<div class="container_back star-rating" data-place-id="">
+		<div class="star note0_5 note1 note1_5 note2 note2_5 note3 note3_5 note4 note4_5 note5" data-value="1"></div>
+		<div class="star note1_5 note2 note2_5 note3 note3_5 note4 note4_5 note5" data-value="2"></div>
+		<div class="star note2_5 note3 note3_5 note4 note4_5 note5" data-value="3"></div>
+		<div class="star note3_5 note4 note4_5 note5" data-value="4"></div>
+		<div class="star note4_5 note5" data-value="5"></div>
+	</div>
+</div>
 </body>
+
+<script>
+	// Fonction pour gérer la soumission du formulaire de recherche
+	function onHandleSearch() {
+		const searchBar = document.getElementById('search-bar');
+		const query = searchBar.value.trim();
+		if (query) {
+			// Rediriger vers une nouvelle URL avec le terme de recherche comme paramètre de requête
+			window.location.href = `index.html?search=${encodeURIComponent(query)}`;
+		}
+	}
+
+	// Code existant pour récupérer les informations du produit
+	document.addEventListener('DOMContentLoaded', (event) => {
+		const searchParams = new URLSearchParams(window.location.search);
+		const id = searchParams.get("id");
+		if (id) {
+			const url = `https://world.openfoodfacts.org/api/v3/product/${id}.json`;
+			fetch(url).then(response => response.json()).then(response => {
+				console.log(response);
+				// title
+				const name = document.querySelector("#title");
+				name.innerHTML = response.product.product_name;
+
+				// image
+				const image_url = response.product.image_front_url;
+				const img = document.querySelector("#biscuit_img");
+				img.setAttribute("src", image_url);
+
+				// ingredients
+				const listIngredients = document.querySelector("#liste_ingredients");
+				listIngredients.innerHTML = response.product.ingredients.map(ingredient => {
+					return `<li>${ingredient.text.replaceAll("_", " ")}</li>`;
+				}).join("");
+
+				// allergènes
+				const listAllergenes = document.querySelector("#liste_allergenes");
+				listAllergenes.innerHTML = response.product.allergens_tags.map(allergen => {
+					return `<li>${allergen.replaceAll("en:", " ")}</li>`;
+				}).join("");
+			});
+		}
+	});
+
+	// stars
+	const note = Math.min(5, Math.round(response.product.nutriments.sugars / 5)/2);
+		console.log(note);
+		// cookienormale, cookiecroque
+		const stars = document.querySelectorAll(".star.note"+note.toString().replace(".","_"));
+		stars.forEach((star, index) => {
+			if (Math.floor(note) == note || index < note - 1) {
+				star.classList.add("cookienormale");
+			} else {
+				star.classList.add("cookiecroque");
+			}
+		});
+</script>
 </html>
