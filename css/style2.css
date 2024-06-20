@@ -9,6 +9,14 @@ font-size: xx-large;
 
 }
 
+.container_up {
+background-color: white;
+font-family: Arial, Helvetica, sans-serif;
+font-size: xx-large;
+display: flex ;
+align-items: space-evenly;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -22,10 +30,10 @@ font-size: xx-large;
     align-items: center;
     width: 48%;
     margin-bottom: 20px;
-    border: 2px solid black;
+    border: 5px solid black;
     border-radius: 40px;
     background-color: white;
-    margin-top: 0px;
+    margin-top: 50px;
     
 }
 .list-item img {
@@ -77,12 +85,12 @@ font-size: xx-large;
     border: 1px solid #ccc;
     border-radius: 25px; /* Arrondi un peu plus prononcé */
     outline: none;
-    width: 500px; /* Augmenté pour une plus grande largeur */
+    width: 300px; /* Augmenté pour une plus grande largeur */
 }
 
 /* Style pour le bouton "OK" */
 .container_item input[type="submit"] {
-    background-color: #ff94e4; /* Couleur de fond */
+    background-color: #ff0000; /* Couleur de fond */
     color: white; /* Couleur du texte */
     border: none;
     padding: 12px 24px; /* Augmenté pour correspondre à l'input */
@@ -98,33 +106,18 @@ font-size: xx-large;
     background-color: #0056b3; /* Couleur de fond au survol */
 }
 
-.container_header {
-    display: table;
-    width: 100%;
-    height: 10vh; /* S'assure que le conteneur a une hauteur suffisante pour la démonstration */
-    text-align: center; /* Centre horizontalement */
-    display: flex;
-    align-items: center;
-    border: 2px solid black;
-    border-radius: 40px;
-    background-color: white;
-    display: flex;
-    justify-content: space-around;
-    border-radius: 20px;
-}
+.container_header img{
+    margin-top: 10px;
 
+   }
   
   .item {
     display: table-cell;
     vertical-align: middle; /* Centre verticalement */
     /* Vos styles pour les éléments */
   }
-   .container_header img{
-    margin-top: 10px;
-
-   }
-
-   .container_best {
+  
+  .container_best {
     background-color: white;
     border-radius: 40px;
     border: 2px solid black;
@@ -138,4 +131,19 @@ font-size: xx-large;
    .container_itembest text{
     margin-left: 500px;
    }
+
+   .container_header {
+    display: table;
+    width: 100%;
+    height: 10vh; /* S'assure que le conteneur a une hauteur suffisante pour la démonstration */
+    text-align: center; /* Centre horizontalement */
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 40px;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+}
 

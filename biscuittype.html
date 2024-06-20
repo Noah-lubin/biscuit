@@ -2,21 +2,31 @@
 <html lang="fr">
 	<link rel="stylesheet" href="./css/stylecva.css">
 	<body>
-		<title>Creespy</title>
-		<div class="container">
-			<a href="index.html"><div class="container_item"><img src="../image/home.png"alt="home"></div></a>
-			<div class="container_item">Creespy Biscuits</div>
-			<div class="container_item">
-				<div action="">
-					<input type="search"/>
-					<input type="submit" value="ok" onclick="search()"/>
+		<div class="container_header">
+			<a href="index.html">
+				<div class="container_item">
+					<img src="../image/home.png" alt="title">
 				</div>
+			</a>
+			<a href="index.html">
+				<div class="container_item">
+					<img src="../image/title.png" alt="home" width="auto" height="75px">
+				</div>
+			</a>
+			<div class="container_item">
+				<form action="javascript:void(0);" onsubmit="onHandleSearch()">
+					<input type="search" id="search-bar" placeholder="Rechercher..." />
+					<input type="submit" value="ok" />
+				</form>
 			</div>
-		</div>
+			<div class="container_item">
+				<img src="../image/filtre.png" alt="filtre">
+			</div><br>
+		</div><br><br><br>
 		
-		<h1>Cookie de granola</h1>
+		<h1 id="title"></h1>
 		<div class="container_image">
-			<img src="../image/granola.jpg"alt="image3" width="60%" height="auto">
+			<img id="biscuit_img"/>
 			<p><U>Ingrédients:</U></p>
 			<ul id="liste_ingredients"></ul>
 			<p><U>allergènes:</U></p>
@@ -33,7 +43,8 @@
 			function search() {
 				console.log("search !");
 			}
-			const id = '3017760756198';
+            var searchParams = new URLSearchParams(window.location.search); //?anything=123
+			const id = searchParams.get("id");
 			const url= `https://world.openfoodfacts.org/api/v3/product/${id}.json`;
 			fetch(url).then(function (response)
 			{
@@ -41,6 +52,15 @@
 
 			}).then(function (response){
 				console.log(response);
+                // title
+                const name= document.querySelector("#title");
+				name.innerHTML= (response.product.product_name)
+
+				// image
+				const image_url = response.product.image_front_url;
+				const img= document.querySelector("#biscuit_img");
+				img.setAttribute("src", image_url);
+
 				// ingredients
 				const listIngredients= document.querySelector("#liste_ingredients");
 				listIngredients.innerHTML= (response.product.ingredients).map(function(ingredient)
@@ -56,7 +76,6 @@
 
 			});
 
-			
 		</script>
 		
 	</body>
