@@ -81,7 +81,7 @@ font-family: Arial, Helvetica, sans-serif;
 
 /* Style pour le bouton "OK" */
 .container_item input[type="submit"] {
-    background-color: #ff0000; /* Couleur de fond */
+    background-color: #ff70e0; /* Couleur de fond */
     color: white; /* Couleur du texte */
     border: none;
     padding: 12px 24px; /* Augmenté pour correspondre à l'input */
