@@ -1,113 +1,69 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="./css/stylecva.css">
+    <link rel="stylesheet" href="./css/stylecva2.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creespy</title>
+    <style>
+        .star-rating {
+            display: flex;
+            align-items: center;
+        }
+
+        .star-rating .star {
+            width: 30px; /* Taille des étoiles */
+            height: 30px;
+            background-size: cover;
+            background-image: url('./image/cookievide.png'); /* Image de l'étoile vide */
+        }
+
+        .star-rating .star.cookienormale {
+            background-image: url('./image/cookienormal.png'); /* Image de l'étoile remplie */
+        }
+        .star-rating .star.cookiecroque {
+            background-image: url('./image/cookiecroque.png');
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html">
-            <div class="container_item">
-                <img src="../image/home.png" alt="home">
-            </div>
-        </a>
-        <div class="container_item">Creespy Biscuits</div>
-        <div class="container_item">
-            <form action="javascript:void(0);" onsubmit="search()">
-                <input type="search" id="search-bar" placeholder="Rechercher..." />
-                <input type="submit" value="ok" />
-            </form>
-        </div>
-    </div>
+    <!-- Votre contenu existant ici -->
+
     <h1>Biscuits</h1>
+
+    <!-- Exemple de système de notation par étoiles pour un biscuit -->
     <div class="container_image">
         <img src="../image/ber-ready.jpg" alt="image4" width="40%" height="auto">
         <p><u>Ingrédients :</u></p>
         <ul id="liste_ingredients"></ul><br>
         <p><u>Allergènes :</u></p>
         <ul id="liste_allergenes"></ul>
-    </div>
-    <div class="container_down">
-        <a href="./BN.html"><img src="./image/left-arrow - Copie.png" alt="home"></a>
-        <a href="./tuc.html"><img src="./image/right-arrow.png" alt="home"></a>
-    </div>
-
-    <div class="container" id="biscuit-list">
-        <div class="list-item">
-            <img src="../image/grannola.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuit.html">Granola basique</a>
+        <div class="container_back star-rating" data-place-id="">
+            <div class="star cookienormale" data-value="1"></div>
+            <div class="star cookienormale" data-value="2"></div>
+            <div class="star cookiecroque" data-value="3"></div>
+            <div class="star" data-value="4"></div>
+            <div class="star" data-value="5"></div>
         </div>
-        <div class="list-item">
-            <img src="../image/napolitain.jpg" alt="Image" width="50%" height="auto">
-            <a href="./napolitain.html">Napolitain</a>
-        </div>
-        <div class="list-item">
-            <img src="../image/granola.jpg" alt="Image" width="50%" height="auto">
-            <a href="./cookie.html">Cookie Granola</a>
-        </div>
-        <div class="list-item">
-            <img src="../image/snickers.png" alt="Image" width="50%" height="auto">
-            <a href="./snickers.html">Snickers</a>
-        </div>
-        <!-- Ajoutez plus d'éléments de biscuits ici -->
     </div>
-
-    <!-- Section pour l'erreur 404 -->
-    <div id="error-page" style="display: none;">
-        <h2>Error 404, Not Found</h2>
-        <img src="../image/biscuit.gif" alt="Biscuit qui tourne">
-    </div>
-
+    <!-- Fin de votre contenu existant -->
     <script>
-        function search() {
-            const query = document.getElementById('search-bar').value.toLowerCase();
-            const items = document.querySelectorAll('.list-item');
-            let found = false;
-
-            items.forEach(item => {
-                const text = item.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    item.style.display = '';
-                    found = true;
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            if (!found) {
-                showNotFoundError();
-            } else {
-                hideNotFoundError();
-            }
-        }
-
-        function showNotFoundError() {
-            document.getElementById('biscuit-list').style.display = 'none';
-            document.getElementById('error-page').style.display = 'block';
-        }
-
-        function hideNotFoundError() {
-            document.getElementById('biscuit-list').style.display = 'block';
-            document.getElementById('error-page').style.display = 'none';
-        }
-
+        // Exemple de récupération des données d'un API (simulé)
         const url = "https://world.openfoodfacts.org/api/v3/product/8000500310427.json";
-        fetch(url).then(function(response) {
-            return response.json();
-        }).then(function(response) {
-            console.log(response.product.ingredients);
-            const list = document.querySelector("#liste_ingredients");
-            list.innerHTML = (response.product.ingredients).map(function(ingredient) {
-                return `<li>${ingredient.text.replaceAll("_", " ")}</li>`;
-            }).join("");
+        fetch(url)
+            .then(response => response.json())
+            .then(response => {
+                const listIngredients = document.querySelector("#liste_ingredients");
+                listIngredients.innerHTML = response.product.ingredients.map(ingredient => {
+                    return `<li>${ingredient.text.replaceAll("_", " ")}</li>`;
+                }).join("");
 
-            const listAllergenes = document.querySelector("#liste_allergenes");
-            listAllergenes.innerHTML = (response.product.allergens_tags).map(function(allergen) {
-                return `<li>${allergen.replaceAll("en:", " ")}</li>`;
-            }).join("");
-        });
+                const listAllergenes = document.querySelector("#liste_allergenes");
+                listAllergenes.innerHTML = response.product.allergens_tags.map(allergen => {
+                    return `<li>${allergen.replaceAll("en:", " ")}</li>`;
+                }).join("");
+            })
+            .catch(error => console.error('Erreur lors du chargement des données:', error));
     </script>
 </body>
 </html>

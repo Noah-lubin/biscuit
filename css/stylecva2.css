@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container_item {
+    font-size: xx-large;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: x-large;
+}
+
+.container_down {
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container_image {
+    background-color: rgb(255, 255, 255); /* Correction de la couleur de fond */
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
+    font-size: x-large;
+}
+
+.container_test {
+    background-color: #ff0000; /* Couleur de fond correcte */
+    width: 500px; /* Correction de la valeur de largeur */
+}
+
+/* Styles pour la section d'erreur 404 */
+#error-page {
+    text-align: center;
+    margin: 50px auto;
+}
+
+#error-page img {
+    width: 600px; /* Ajuste la taille du biscuit animé */
+}
+
+/* Style pour le conteneur de la barre de recherche */
+.container_item form {
+    display: flex;
+    align-items: center;
+}
+
+/* Style pour l'input de recherche */
+.container_item input[type="search"] {
+    padding: 12px 16px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    width: 300px;
+}
+
+/* Style pour le bouton "OK" */
+.container_item input[type="submit"] {
+    background-color: #ff0000; /* Couleur de fond */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin-left: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover du bouton */
+.container_item input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.container_back {
+    background-color: #ffffff;
+}
