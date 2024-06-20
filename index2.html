@@ -6,24 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creespy</title>
 </head>
+
 <body>
+
+ <!-- head -->
     <div class="container_header">
         <a href="index.html">
             <div class="container_item">
-                <img src="../image/home.png" alt="home">
+                <img src="../image/home.png" alt="title">
             </div>
         </a>
-        <div class="container_item">Creespy Biscuits</div>
-        <div class="container_item">
-            <img src="../image/filtre.png" alt="filtre">
-        </div>
+        <a href="index.html">
+            <div class="container_item">
+                <img src="../image/title.png" alt="home" width="auto" height="75px">
+            </div>
+        </a>
         <div class="container_item">
             <form action="javascript:void(0);" onsubmit="onHandleSearch()">
                 <input type="search" id="search-bar" placeholder="Rechercher..." />
                 <input type="submit" value="ok" />
             </form>
         </div>
-    </div>
+        <div class="container_item">
+            <img src="../image/filtre.png" alt="filtre">
+        </div><br>
+    </div><br><br><br>
+     <!-- liste -->
     <div class="container" id="biscuit-list">
         <div class="list-item">
             <img src="./image/grannola.jpg" alt="Image" width="50%" height="auto">
@@ -73,7 +81,7 @@
         </div>
         <div class="list-item">
             <img src="./image/ours.jpg" alt="Image" width="50%" height="auto">
-            <a href="./ours.html">Ours de LU</a>
+            <a href="./biscuittype2.html?id=3048282322646">Ours de LU</a>
         </div>
         <div class="list-item">
             <img src="./image/speculoos.jpg" alt="Image" width="50%" height="auto">
@@ -132,6 +140,8 @@
     </div>
 
     <script>
+        const biscuits = [3048282322646, ];
+        
 
 		// vérifie si il y a une query string dans la barre d'adresse
 		// et si il y en a une, alors lance search(query)
