@@ -7,7 +7,7 @@
     <title>Creespy</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container_header">
         <a href="index.html">
             <div class="container_item">
                 <img src="../image/home.png" alt="home">
@@ -18,7 +18,7 @@
             <img src="../image/filtre.png" alt="filtre">
         </div>
         <div class="container_item">
-            <form action="javascript:void(0);" onsubmit="search()">
+            <form action="javascript:void(0);" onsubmit="onHandleSearch()">
                 <input type="search" id="search-bar" placeholder="Rechercher..." />
                 <input type="submit" value="ok" />
             </form>
@@ -28,14 +28,12 @@
         <div class="list-item">
             <img src="./image/grannola.jpg" alt="Image" width="50%" height="auto">
             <a href="./biscuit.html">Granola basique</a>
+			<div class="rating" data-id="granola">
+            </div>
         </div>
         <div class="list-item">
             <img src="./image/napolitain.jpg" alt="Image" width="50%" height="auto">
             <a href="./napolitain.html">Napolitain</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/granola.jpg" alt="Image" width="50%" height="auto">
-            <a href="./cookie.html">Cookie Granola</a>
         </div>
         <div class="list-item">
             <img src="./image/granola.jpg" alt="Image" width="50%" height="auto">
@@ -55,7 +53,7 @@
         </div>
         <div class="list-item">
             <img src="./image/ber-ready.jpg" alt="Image" width="50%" height="auto">
-            <a href="./be-ready.html">Biscuit nutella</a>
+            <a href="./biscuitnutella.html">Biscuit nutella</a>
         </div>
         <div class="list-item">
             <img src="./image/tuc.jpg" alt="Image" width="50%" height="auto">
@@ -121,6 +119,10 @@
             <img src="./image/delichoc.jpg" alt="Image" width="50%" height="auto">
             <a href="./delichoc.html">Delichoc</a>
         </div>
+		<div class="list-item">
+            <img src="./image/la paille d'or.jpg" alt="Image" width="50%" height="auto">
+            <a href="./la paille d'or.html">La paille d'or</a>
+        </div>
     </div>
 
     <!-- Section pour l'erreur 404 -->
@@ -130,8 +132,20 @@
     </div>
 
     <script>
-        function search() {
-            const query = document.getElementById('search-bar').value.toLowerCase();
+
+		// vérifie si il y a une query string dans la barre d'adresse
+		// et si il y en a une, alors lance search(query)
+		var searchParams = new URLSearchParams(window.location.search); //?anything=123
+		if (searchParams.get("search")) {
+			search(searchParams.get("search"));
+		}
+
+		function onHandleSearch() {
+			const query = document.getElementById('search-bar').value.toLowerCase();
+			search(query)
+		}
+
+        function search(query) {
             const items = document.querySelectorAll('.list-item');
             let found = false;
 
