@@ -106,11 +106,10 @@ font-size: xx-large;
     display: flex;
     align-items: center;
     border: 2px solid black;
-    border-radius: 40px;
     background-color: white;
     display: flex;
     justify-content: space-around;
-    border-radius: 20px;
+    border-radius: 60px;
 }
 
   
