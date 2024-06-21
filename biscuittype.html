@@ -56,7 +56,9 @@
 	<!-- titre -->
 	<h1 id="title"></h1>
 	<div class="container_image">
-		<img id="biscuit_img" />
+		<div>
+		  <img id="biscuit_img" />
+	    </div>
 		<!-- liste ingredients -->
 		<p><u>Ingrédients:</u></p>
 		<ul id="liste_ingredients"></ul>
@@ -101,10 +103,10 @@
 		const id = searchParams.get("id");
 		var codeAvant = 0;
 		var codeApres = 0;
-		biscuits.products.forEach(function(biscuit, index) {
+		biscuits.products.forEach(function (biscuit, index) {
 			if (id == biscuit.code) {
-				const indexAvant = index == 0 ? biscuits.products.length - 1 : index-1;
-				const indexApres = index ==  biscuits.products.length - 1 ? 0 : index +1;
+				const indexAvant = index == 0 ? biscuits.products.length - 1 : index - 1;
+				const indexApres = index == biscuits.products.length - 1 ? 0 : index + 1;
 				codeAvant = biscuits.products[indexAvant].code;
 				codeApres = biscuits.products[indexApres].code;
 			}
