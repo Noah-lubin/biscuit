@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creespy</title>
@@ -15,10 +16,12 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
+
         .context-menu-item {
             padding: 8px 12px;
             cursor: pointer;
         }
+
         .context-menu-item:hover {
             background-color: #ff7cd6;
         }
@@ -27,16 +30,16 @@
 
 <body>
 
- <!-- head -->
+    <!-- head -->
     <div class="container_header">
         <a href="index.html">
             <div class="container_item">
-                <img src="../image/home.png" alt="title">
+                <img src="./image/home.png" alt="title">
             </div>
         </a>
         <a href="index.html">
             <div class="container_item">
-                <img src="../image/title.png" alt="home" width="auto" height="75px">
+                <img src="./image/title.png" alt="home" width="auto" height="75px">
             </div>
         </a>
         <div class="container_item">
@@ -46,17 +49,17 @@
             </form>
         </div>
         <div class="container_item">
-            <img src="../image/filtre.png" alt="filtre" id="filter-btn">
+            <img src="./image/filtre.png" alt="filtre" id="filter-btn">
         </div><br>
     </div><br><br><br>
-    
+
     <!-- liste -->
     <div class="container" id="biscuit-list"></div>
 
     <!-- Section pour l'erreur 404 -->
     <div id="error-page" style="display: none;">
         <h2>Error 404, Not Found</h2>
-        <img src="../image/biscuit.gif" alt="Biscuit qui tourne">
+        <img src="./image/biscuit.gif" alt="Biscuit qui tourne">
     </div>
 
     <!-- Menu contextuel pour le tri -->
@@ -67,7 +70,7 @@
 
     <script src="./biscuits.js"></script>
     <script>
-        const biscuitsHtml = biscuits.products.map(function(biscuit) {
+        const biscuitsHtml = biscuits.products.map(function (biscuit) {
             return `<div class="list-item">
                <div> <img src="${biscuit.image_front_url}" alt="Image" width="50%" height="auto"> </div>
                 <a href="./biscuittype.html?id=${biscuit.code}">${biscuit.product_name}</a><br>
@@ -147,15 +150,16 @@
         }
 
         function updateBiscuitList() {
-            const sortedBiscuitsHtml = biscuits.products.map(function(biscuit) {
+            const sortedBiscuitsHtml = biscuits.products.map(function (biscuit) {
                 return `<div class="list-item">
                     <img src="${biscuit.image_front_url}" alt="Image" width="50%" height="auto">
                     <a href="./biscuittype.html?id=${biscuit.code}">${biscuit.product_name}</a><br>
-                    <p> ${biscuit.nutriments.sugars_100g}g </p>
+                    <p> ${biscuit.nutriments.sugars_100g}g</p>
                 </div>`;
             });
             biscuitsList.innerHTML = sortedBiscuitsHtml.join('');
         }
     </script>
 </body>
+
 </html>
