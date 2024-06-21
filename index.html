@@ -6,27 +6,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Le site de référence des meilleurs biscuits du monde">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creespy</title>
-    <style>
-        /* Style pour le menu contextuel */
-        .context-menu {
-            display: none;
-            position: absolute;
-            background-color: rgb(191, 0, 255);
-            border: 2px solid #ccc;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .context-menu-item {
-            padding: 8px 12px;
-            cursor: pointer;
-        }
-
-        .context-menu-item:hover {
-            background-color: #ff7cd6;
-        }
-    </style>
+    <title>Creespy Biscuit</title>
 </head>
 
 <body>
@@ -122,7 +102,7 @@
         filterBtn.addEventListener('click', (event) => {
             event.preventDefault();
             contextMenu.style.top = event.pageY + 'px';
-            contextMenu.style.left = event.pageX + 'px';
+            contextMenu.style.right = 0;
             contextMenu.style.display = 'block';
         });
 

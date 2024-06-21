@@ -1,7 +1,8 @@
 body {
     background-color: rgb(255, 146, 226);
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 .container_item {
     background-color: (255, 146, 226);
     font-family: Arial, Helvetica, sans-serif;
@@ -25,14 +26,16 @@ body {
     background-color: white;
     margin-top: 0px;
     height: 300px;
-    
+
 }
+
 .list-item img {
     margin-right: 10px;
     margin-left: 30px;
     max-width: 400px;
     max-height: 291px;
 }
+
 .list-item p {
     margin: 0;
 }
@@ -44,7 +47,8 @@ body {
 }
 
 #error-page img {
-    width: 600px; /* Ajuste la taille du biscuit animé */
+    width: 600px;
+    /* Ajuste la taille du biscuit animé */
 }
 
 /* Style pour le conteneur de la barre de recherche */
@@ -61,22 +65,31 @@ body {
 
 /* Style pour l'input de recherche */
 .container_item input[type="search"] {
-    padding: 12px 16px; /* Augmenté pour un meilleur espacement */
-    font-size: 18px; /* Légèrement augmenté pour la lisibilité */
+    padding: 12px 16px;
+    /* Augmenté pour un meilleur espacement */
+    font-size: 18px;
+    /* Légèrement augmenté pour la lisibilité */
     border: 1px solid #ccc;
-    border-radius: 25px; /* Arrondi un peu plus prononcé */
+    border-radius: 25px;
+    /* Arrondi un peu plus prononcé */
     outline: none;
-    max-width: 500px; /* Augmenté pour une plus grande largeur */
+    max-width: 500px;
+    /* Augmenté pour une plus grande largeur */
 }
 
 /* Style pour le bouton "OK" */
 .container_item input[type="submit"] {
-    background-color: #ff94e4; /* Couleur de fond */
-    color: white; /* Couleur du texte */
+    background-color: #ff94e4;
+    /* Couleur de fond */
+    color: white;
+    /* Couleur du texte */
     border: none;
-    padding: 12px 24px; /* Augmenté pour correspondre à l'input */
-    margin-left: 10px; /* Légèrement augmenté pour un espacement */
-    border-radius: 25px; /* Arrondi un peu plus prononcé */
+    padding: 12px 24px;
+    /* Augmenté pour correspondre à l'input */
+    margin-left: 10px;
+    /* Légèrement augmenté pour un espacement */
+    border-radius: 25px;
+    /* Arrondi un peu plus prononcé */
     cursor: pointer;
     outline: none;
     transition: background-color 0.3s ease;
@@ -84,34 +97,37 @@ body {
 
 /* Hover du bouton */
 .container_item input[type="submit"]:hover {
-    background-color: #0056b3; /* Couleur de fond au survol */
+    background-color: #0056b3;
+    /* Couleur de fond au survol */
 }
 
-  
-  .item {
+
+.item {
     display: table-cell;
-    vertical-align: middle; /* Centre verticalement */
+    vertical-align: middle;
+    /* Centre verticalement */
     /* Vos styles pour les éléments */
-  }
-   .container_header img{
+}
+
+.container_header img {
     margin-top: 10px;
 
-   }
+}
 
-   .container_best {
+.container_best {
     background-color: white;
     border-radius: 40px;
     border: 2px solid black;
     margin-bottom: 50px;
-   }
+}
 
-   .container_best img {
+.container_best img {
     width: 500px
-   }
+}
 
-   .container_itembest text{
+.container_itembest text {
     margin-left: 500px;
-   }
+}
 
 .container_header {
     position: sticky;
@@ -119,32 +135,82 @@ body {
     background-color: white;
     justify-content: space-around;
     border-radius: 30px;
-    background:#FFFFFF;
+    background: #FFFFFF;
     top: 10px;
-    left:10px;
-    right:10px;
-    z-index: 1000; /* Assurez-vous que le header soit au-dessus des autres éléments */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre pour une meilleure visibilité */
+    left: 10px;
+    right: 10px;
+    z-index: 1000;
+    /* Assurez-vous que le header soit au-dessus des autres éléments */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Ajoutez une ombre pour une meilleure visibilité */
 }
 
 .container-h {
     display: flex;
-    flex-wrap:nowrap;
-    align-items:center;
+    flex-wrap: nowrap;
+    align-items: center;
     flex-wrap: wrap;
     box-sizing: border-box;
     justify-content: space-between;
 }
-.container-h > * {padding: 10px;}
-.container_header img {max-width: 80%;}
+
+.container-h>* {
+    padding: 10px;
+}
+
+.container_header img {
+    max-width: 80%;
+}
 
 #biscuit-list {
-    margin-top:20px;
+    margin-top: 20px;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+}
+
+.star-rating .star {
+    width: 70px;
+    /* Taille des étoiles */
+    height: 70px;
+    background-size: cover;
+    background-image: url('./image/cookievide.png');
+    /* Image de l'étoile vide */
+}
+
+.star-rating .star.cookienormale {
+    background-image: url('./image/cookienormal.png');
+    /* Image de l'étoile remplie */
+}
+
+.star-rating .star.cookiecroque {
+    background-image: url('./image/cookiecroque.png');
+}
+
+/* Style pour le menu contextuel */
+.context-menu {
+    display: none;
+    position: absolute;
+    background-color: rgb(191, 0, 255);
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.context-menu-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.context-menu-item:hover {
+    background-color: #ff7cd6;
 }
 
 /* Au niveau le plus haut du code */
 @media screen and (max-width: 800px) {
     .list-item {
-      width:100%;
+        width: 100%;
     }
-  }
+}
