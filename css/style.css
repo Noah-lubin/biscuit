@@ -22,7 +22,7 @@ body {
     width: 48%;
     margin-bottom: 20px;
     border: 2px solid black;
-    border-radius: 40px;
+    border-radius: 60px;
     background-color: white;
     margin-top: 0px;
     height: 300px;
@@ -134,7 +134,7 @@ body {
     border: 2px solid black;
     background-color: white;
     justify-content: space-around;
-    border-radius: 30px;
+    border-radius: 60px;
     background: #FFFFFF;
     top: 10px;
     left: 10px;
