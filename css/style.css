@@ -1,19 +1,18 @@
 body {
     background-color: rgb(255, 146, 226);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 80px;
 }
 .container_item {
-background-color: (255, 146, 226);
-font-family: Arial, Helvetica, sans-serif;
-font-size: xx-large;
-
+    background-color: (255, 146, 226);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: x-large;
 }
 
@@ -99,20 +98,6 @@ font-size: xx-large;
     background-color: #0056b3; /* Couleur de fond au survol */
 }
 
-.container_header {
-    display: table;
-    width: 100%;
-    height: 10vh; /* S'assure que le conteneur a une hauteur suffisante pour la démonstration */
-    text-align: center; /* Centre horizontalement */
-    display: flex;
-    align-items: center;
-    border: 2px solid black;
-    background-color: white;
-    display: flex;
-    justify-content: space-around;
-    border-radius: 60px;
-}
-
   
   .item {
     display: table-cell;
@@ -139,20 +124,37 @@ font-size: xx-large;
     margin-left: 500px;
    }
 
-
-   .container_header {
-    position: fixed;
-    top: 10px;
-    width: 100%;
-    background-color: white; /* Assurez-vous que le fond soit blanc ou une autre couleur pour bien voir le header */
-    z-index: 1000; /* Assurez-vous que le header soit au-dessus des autres éléments */
+.container_header {
+    position:fixed;
     display: flex;
+    flex-wrap:nowrap;
+    align-items:center;
+    border: 2px solid black;
+    background-color: white;
+    justify-content: space-around;
+    border-radius: 30px;
+    background:#FFFFFF;
+    top: 10px;
+    left:10px;
+    right:10px;
+    z-index: 1000; /* Assurez-vous que le header soit au-dessus des autres éléments */
     justify-content: space-between;
-    align-items: center;
     padding: 10px; /* Ajustez le padding selon vos besoins */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre pour une meilleure visibilité */
 }
 
+#biscuit-list {
+    margin-top:136px;
+}
 
+header > * {
+    display:block;
+    flex: 1 1 auto;
+} 
 
-   
+/* Au niveau le plus haut du code */
+@media screen and (max-width: 800px) {
+    .list-item {
+      width:100%;
+    }
+  }

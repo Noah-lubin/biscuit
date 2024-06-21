@@ -31,17 +31,8 @@
 <body>
 
     <!-- head -->
-    <div class="container_header">
-        <a href="index.html">
-            <div class="container_item">
-                <img src="./image/home.png" alt="title">
-            </div>
-        </a>
-        <a href="index.html">
-            <div class="container_item">
-                <img src="./image/title.png" alt="home" width="auto" height="75px">
-            </div>
-        </a>
+    <header class="container_header">
+        <a href="index.html"><img src="./image/title.png" alt="home" width="auto" height="75px"></a>
         <div class="container_item">
             <form action="javascript:void(0);" onsubmit="onHandleSearch()">
                 <input type="search" id="search-bar" placeholder="Rechercher..." />
@@ -50,9 +41,8 @@
         </div>
         <div class="container_item">
             <img src="./image/filtre.png" alt="filtre" id="filter-btn">
-        </div><br>
-    </div><br><br><br>
-
+        </div>
+    </header>
     <!-- liste -->
     <div class="container" id="biscuit-list"></div>
 
