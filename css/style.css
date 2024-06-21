@@ -1,6 +1,6 @@
 body {
     background-color: rgb(255, 146, 226);
-    margin-top: 10px;
+    margin-top: 80px;
 }
 .container_item {
 background-color: (255, 146, 226);
@@ -26,13 +26,14 @@ font-size: xx-large;
     border-radius: 40px;
     background-color: white;
     margin-top: 0px;
+    height: 300px;
     
 }
 .list-item img {
     margin-right: 10px;
     margin-left: 30px;
-    width: auto;
-    height: 291px;
+    max-width: 400px;
+    max-height: 291px;
 }
 .list-item p {
     margin: 0;
@@ -137,6 +138,20 @@ font-size: xx-large;
    .container_itembest text{
     margin-left: 500px;
    }
+
+
+   .container_header {
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    background-color: white; /* Assurez-vous que le fond soit blanc ou une autre couleur pour bien voir le header */
+    z-index: 1000; /* Assurez-vous que le header soit au-dessus des autres éléments */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Ajustez le padding selon vos besoins */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre pour une meilleure visibilité */
+}
 
 
 

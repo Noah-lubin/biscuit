@@ -49,8 +49,10 @@
         const biscuitsHtml = biscuits.products.map(function(biscuit)  {
              return `<div class="list-item">
             <img src="${biscuit.image_front_url}" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=${biscuit.code}">${biscuit.product_name}</a>
+            <a href="./biscuittype.html?id=${biscuit.code}">${biscuit.product_name}</a><br>
+            <p> ${biscuit.nutriments.sugars_100g}g </p>
             </div>`;
+            console.log()
         })
         const biscuitsList = document.querySelector("#biscuit-list");
         biscuitsList.innerHTML = biscuitsHtml.join('');
@@ -97,6 +99,7 @@
             document.getElementById('biscuit-list').style.display = 'block';
             document.getElementById('error-page').style.display = 'none';
         }
+        
     </script>
 </body>
 </html>
