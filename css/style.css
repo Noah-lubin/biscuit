@@ -167,30 +167,6 @@ body {
 #biscuit-list {
     margin-top: 20px;
 }
-
-.star-rating {
-    display: flex;
-    align-items: center;
-}
-
-.star-rating .star {
-    width: 70px;
-    /* Taille des étoiles */
-    height: 70px;
-    background-size: cover;
-    background-image: url('./image/cookievide.png');
-    /* Image de l'étoile vide */
-}
-
-.star-rating .star.cookienormale {
-    background-image: url('./image/cookienormal.png');
-    /* Image de l'étoile remplie */
-}
-
-.star-rating .star.cookiecroque {
-    background-image: url('./image/cookiecroque.png');
-}
-
 /* Style pour le menu contextuel */
 .context-menu {
     display: none;
