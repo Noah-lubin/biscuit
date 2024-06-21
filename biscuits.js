@@ -690,7 +690,7 @@ const biscuits=
         "sugars_unit": "g",
         "sugars_value": 30
       },
-      "product_name": "Biscuits goût chocolat"
+      "product_name": "BN au chocolat"
     },
     {
       "code": "7622210713889",
@@ -1680,7 +1680,7 @@ const biscuits=
         "sugars_unit": "g",
         "sugars_value": 41.2
       },
-      "product_name": "LU le vrai petit écolier"
+      "product_name": "Kinder bueno"
     },
     {
       "code": "7622300689124",
@@ -4695,7 +4695,7 @@ const biscuits=
         "sugars_unit": "g",
         "sugars_value": 31
       },
-      "product_name": "Multicéréales goût chocolat"
+      "product_name": "Prince goût chocolat"
     },
     {
       "code": "8480000142139",
@@ -5141,7 +5141,7 @@ const biscuits=
         "sugars_unit": "g",
         "sugars_value": 41
       },
-      "product_name": "Bastogne - LU"
+      "product_name": "kinder delice "
     },
     {
       "code": "3056440070896",
@@ -5605,7 +5605,7 @@ const biscuits=
         "sugars_unit": "g",
         "sugars_value": 36
       },
-      "product_name": "Pim's framboise de LU"
+      "product_name": "petit ecolier de LU goût chocolat noir"
     },
     {
       "code": "5410041040807",
