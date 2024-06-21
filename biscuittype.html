@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<link rel="stylesheet" href="./css/stylecva.css">
+	<link rel="stylesheet" href="./css/stylecva.css">
 </head>
 <style>
 	.star-rating {
@@ -10,69 +11,76 @@
 	}
 
 	.star-rating .star {
-		width: 70px; /* Taille des étoiles */
+		width: 70px;
+		/* Taille des étoiles */
 		height: 70px;
 		background-size: cover;
-		background-image: url('./image/cookievide.png'); /* Image de l'étoile vide */
+		background-image: url('./image/cookievide.png');
+		/* Image de l'étoile vide */
 	}
 
 	.star-rating .star.cookienormale {
-		background-image: url('./image/cookienormal.png'); /* Image de l'étoile remplie */
+		background-image: url('./image/cookienormal.png');
+		/* Image de l'étoile remplie */
 	}
+
 	.star-rating .star.cookiecroque {
 		background-image: url('./image/cookiecroque.png');
 	}
 </style>
 
 <body>
-<!-- head -->
-<div class="container_header">
-	<a href="index.html">
+	<!-- head -->
+	<div class="container_header">
+		<a href="index.html">
+			<div class="container_item">
+				<img src="../image/home.png" alt="title">
+			</div>
+		</a>
+		<a href="index.html">
+			<div class="container_item">
+				<img src="../image/title.png" alt="home" width="auto" height="75px">
+			</div>
+		</a>
 		<div class="container_item">
-			<img src="../image/home.png" alt="home">
+			<form action="javascript:void(0);" onsubmit="onHandleSearch()">
+				<input type="search" id="search-bar" placeholder="Rechercher..." />
+				<input type="submit" value="ok" />
+			</form>
 		</div>
-	</a>
-	<a href="index.html">
 		<div class="container_item">
-			<img src="../image/title.png" alt="title" width="auto" height="75px">
+			<img src="../image/filtre.png" alt="filtre">
+		</div><br>
+	</div><br><br><br>
+
+	<!-- titre -->
+	<h1 id="title"></h1>
+	<div class="container_image">
+		<img id="biscuit_img" />
+		<!-- liste ingredients -->
+		<p><u>Ingrédients:</u></p>
+		<ul id="liste_ingredients"></ul>
+		<!-- liste allergenes -->
+		<p><u>allergènes:</u></p>
+		<ul id="liste_allergenes"></ul>
+	</div>
+	<div class="container_down">
+		<a href="./napolitain.html"><img src="./image/left-arrow - Copie.png" alt="home"></a>
+		<a href="./ours"><img src="./image/right-arrow.png" alt="home"></a>
+	</div>
+	<div class="container_text">
+		<p><U>Lubinaerd score* :</U></p>
+	</div>
+	<div class="container_image">
+		<div class="container_back star-rating" data-place-id="">
+			<div class="star note0_5 note1 note1_5 note2 note2_5 note3 note3_5 note4 note4_5 note5" data-value="1">
+			</div>
+			<div class="star note1_5 note2 note2_5 note3 note3_5 note4 note4_5 note5" data-value="2"></div>
+			<div class="star note2_5 note3 note3_5 note4 note4_5 note5" data-value="3"></div>
+			<div class="star note3_5 note4 note4_5 note5" data-value="4"></div>
+			<div class="star note4_5 note5" data-value="5"></div>
 		</div>
-	</a>
-	<div class="container_item">
-		<form onsubmit="onHandleSearch(); return false;">
-			<input type="search" id="search-bar" placeholder="Rechercher..." />
-			<input type="submit" value="ok" />
-		</form>
 	</div>
-	<div class="container_item">
-		<img src="../image/filtre.png" alt="filtre">
-	</div><br>
-</div><br><br><br>
-
-<!-- titre -->
-<h1 id="title"></h1>
-<div class="container_image">
-	<img id="biscuit_img"/>
-	<!-- liste ingredients -->
-	<p><u>Ingrédients:</u></p>
-	<ul id="liste_ingredients"></ul>
-	<!-- liste allergenes -->
-	<p><u>allergènes:</u></p>
-	<ul id="liste_allergenes"></ul>
-</div>
-<div class="container_down">
-	<a href="./napolitain.html"><img src="./image/left-arrow - Copie.png" alt="home"></a>
-	<a href="./ours"><img src="./image/right-arrow.png" alt="home"></a> 
-</div>
-
-<div class="container_image">
-	<div class="container_back star-rating" data-place-id="">
-		<div class="star note0_5 note1 note1_5 note2 note2_5 note3 note3_5 note4 note4_5 note5" data-value="1"></div>
-		<div class="star note1_5 note2 note2_5 note3 note3_5 note4 note4_5 note5" data-value="2"></div>
-		<div class="star note2_5 note3 note3_5 note4 note4_5 note5" data-value="3"></div>
-		<div class="star note3_5 note4 note4_5 note5" data-value="4"></div>
-		<div class="star note4_5 note5" data-value="5"></div>
-	</div>
-</div>
 </body>
 
 <script>
@@ -114,21 +122,22 @@
 				listAllergenes.innerHTML = response.product.allergens_tags.map(allergen => {
 					return `<li>${allergen.replaceAll("en:", " ")}</li>`;
 				}).join("");
+
+				// stars
+				const note = Math.min(5, Math.round(response.product.nutriments.sugars / 5) / 2);
+				console.log(note);
+				// cookienormale, cookiecroque
+				const stars = document.querySelectorAll(".star.note" + note.toString().replace(".", "_"));
+				stars.forEach((star, index) => {
+					if (Math.floor(note) == note || index < note - 1) {
+						star.classList.add("cookienormale");
+					} else {
+						star.classList.add("cookiecroque");
+					}
+				});
 			});
 		}
 	});
-
-	// stars
-	const note = Math.min(5, Math.round(response.product.nutriments.sugars / 5)/2);
-		console.log(note);
-		// cookienormale, cookiecroque
-		const stars = document.querySelectorAll(".star.note"+note.toString().replace(".","_"));
-		stars.forEach((star, index) => {
-			if (Math.floor(note) == note || index < note - 1) {
-				star.classList.add("cookienormale");
-			} else {
-				star.classList.add("cookiecroque");
-			}
-		});
 </script>
+
 </html>

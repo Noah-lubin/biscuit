@@ -5,10 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creespy</title>
+   <style>
+    #dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: rgb(255, 0, 0);
+        border: 1px solid #000000;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    #dropdown-menu a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    #dropdown-menu a:hover {
+        background-color: #fbff00;
+    }
+</style>
+    
 </head>
-
 <body>
-
  <!-- head -->
     <div class="container_header">
         <a href="index.html">
@@ -27,13 +45,16 @@
                 <input type="submit" value="ok" />
             </form>
         </div>
-        <div class="container_item">
-            <img src="../image/filtre.png" alt="filtre">
+        <div class="container_item" style="position: relative;">
+            <img src="../image/filtre.png" alt="filtre" id="filter-icon" style="cursor: pointer;">
+            <div id="dropdown-menu">
+                <a href="javascript:void(0);" onclick="sortListAlphabetically()">Trier par ordre alphabétique</a>
+                <a href="javascript:void(0);">Autre option</a>
+            </div>
         </div><br>
     </div><br><br><br>
     
     <!-- liste -->
-
     <div class="container" id="biscuit-list">
         <div class="list-item">
             <img src="./image/grannola.jpg" alt="Image" width="50%" height="auto">
@@ -127,71 +148,13 @@
             <img src="./image/delichoc.jpg" alt="Image" width="50%" height="auto">
             <a href="./biscuittype.html?id=3116430216342">Delichoc</a>
         </div>
-		<div class="list-item">
+        <div class="list-item">
             <img src="./image/la paille d'or.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3017760544795 ">La paille d'or</a>
+            <a href="./biscuittype.html?id=3017760544795">La paille d'or</a>
         </div>
     </div>
 
     <!-- Section pour l'erreur 404 -->
     <div id="error-page" style="display: none;">
         <h2>Error 404, Not Found</h2>
-        <img src="../image/biscuit.gif" alt="Biscuit qui tourne">
-    </div>
-
-    <script src="./biscuits.js"></script>
-    <script>
-        const biscuitsHtml = biscuits.products.map(function(biscuit)  {
-             return `<div class="list-item">
-            <img src="./image/petitbeurre.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=7622210988034">${biscuit.product_name}</a>
-            </div>`;
-        })
-        const biscuitsList = document.querySelector("#biscuit-list");
-        biscuitsList.innerHTML = biscuitsHtml.join('');
-
-		// vérifie si il y a une query string dans la barre d'adresse
-		// et si il y en a une, alors lance search(query)
-		const searchParams = new URLSearchParams(window.location.search); //?anything=123
-		if (searchParams.get("search")) {
-			search(searchParams.get("search"));
-		}
-
-		function onHandleSearch() {
-			const query = document.getElementById('search-bar').value.toLowerCase();
-			search(query)
-		}
-
-        function search(query) {
-            const items = document.querySelectorAll('.list-item');
-            let found = false;
-
-            items.forEach(item => {
-                const text = item.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    item.style.display = '';
-                    found = true;
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            if (!found) {
-                showNotFoundError();
-            } else {
-                hideNotFoundError();
-            }
-        }
-
-        function showNotFoundError() {
-            document.getElementById('biscuit-list').style.display = 'none';
-            document.getElementById('error-page').style.display = 'block';
-        }
-
-        function hideNotFoundError() {
-            document.getElementById('biscuit-list').style.display = 'block';
-            document.getElementById('error-page').style.display = 'none';
-        }
-    </script>
-</body>
-</html>
+        <img src="../image/biscuit.gif" alt="Bisc

@@ -76,7 +76,7 @@ font-family: Arial, Helvetica, sans-serif;
     border: 1px solid #ccc;
     border-radius: 25px; /* Arrondi un peu plus prononcé */
     outline: none;
-    width: 300px; /* Augmenté pour une plus grande largeur */
+    width: 500px; /* Augmenté pour une plus grande largeur */
 }
 
 /* Style pour le bouton "OK" */
@@ -121,30 +121,17 @@ font-family: Arial, Helvetica, sans-serif;
     display: flex;
     align-items: center;
     border: 2px solid black;
-    border-radius: 40px;
+    border-radius: 60px;
     background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-around;
-    border-radius: 20px;
 }
 
-        .star-rating {
-            display: flex;
-            align-items: center;
-        }
+.container_text {
+    font-size: x-large;
+}
 
-        .star-rating .star {
-            width: 70px; /* Taille des étoiles */
-            height: 70px;
-            background-size: cover;
-            background-image: url('./image/cookievide.png'); /* Image de l'étoile vide */
-        }
-
-        .star-rating .star.cookienormale {
-            background-image: url('./image/cookienormal.png'); /* Image de l'étoile remplie */
-        }
-        .star-rating .star.cookiecroque {
-            background-image: url('./image/cookiecroque.png');
-        }
-
-
+.container_asterix{
+    font-size: x-small;
+}
+       
