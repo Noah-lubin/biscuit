@@ -278,7 +278,7 @@ const biscuits=
         "sugars_unit": "g",
         "sugars_value": 7.1
       },
-      "product_name": ""
+      "product_name": "TUC"
     },
     {
       "code": "8000500310427",
@@ -1680,7 +1680,7 @@ const biscuits=
         "sugars_unit": "g",
         "sugars_value": 41.2
       },
-      "product_name": ""
+      "product_name": "LU le vrai petit écolier"
     },
     {
       "code": "7622300689124",
@@ -5141,7 +5141,7 @@ const biscuits=
         "sugars_unit": "g",
         "sugars_value": 41
       },
-      "product_name": ""
+      "product_name": "Bastogne - LU"
     },
     {
       "code": "3056440070896",
@@ -5605,7 +5605,7 @@ const biscuits=
         "sugars_unit": "g",
         "sugars_value": 36
       },
-      "product_name": ""
+      "product_name": "Pim's framboise de LU"
     },
     {
       "code": "5410041040807",
