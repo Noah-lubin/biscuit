@@ -52,8 +52,8 @@
             <a href="./biscuittype.html?id=${biscuit.code}">${biscuit.product_name}</a><br>
             <p> ${biscuit.nutriments.sugars_100g}g </p>
             </div>`;
-            console.log()
         })
+        console.log(biscuitsHtml.length)
         const biscuitsList = document.querySelector("#biscuit-list");
         biscuitsList.innerHTML = biscuitsHtml.join('');
 
