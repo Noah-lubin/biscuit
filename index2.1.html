@@ -5,28 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creespy</title>
-   <style>
-    #dropdown-menu {
-        display: none;
-        position: absolute;
-        background-color: rgb(255, 0, 0);
-        border: 1px solid #000000;
-        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-    #dropdown-menu a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-    #dropdown-menu a:hover {
-        background-color: #fbff00;
-    }
-</style>
-    
+    <style>
+        /* Style pour le menu contextuel */
+        .context-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .context-menu-item {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        .context-menu-item:hover {
+            background-color: #eee;
+        }
+    </style>
 </head>
+
 <body>
+
  <!-- head -->
     <div class="container_header">
         <a href="index.html">
@@ -45,116 +45,117 @@
                 <input type="submit" value="ok" />
             </form>
         </div>
-        <div class="container_item" style="position: relative;">
-            <img src="../image/filtre.png" alt="filtre" id="filter-icon" style="cursor: pointer;">
-            <div id="dropdown-menu">
-                <a href="javascript:void(0);" onclick="sortListAlphabetically()">Trier par ordre alphabétique</a>
-                <a href="javascript:void(0);">Autre option</a>
-            </div>
+        <div class="container_item">
+            <img src="../image/filtre.png" alt="filtre" id="filter-btn">
         </div><br>
     </div><br><br><br>
     
     <!-- liste -->
-    <div class="container" id="biscuit-list">
-        <div class="list-item">
-            <img src="./image/grannola.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=7622210601988">Granola</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/napolitain.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=7622201809638">Napolitain</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/granola.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3017760756198">Cookie Granola</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/snickers.png" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=5000159461122">Snickers</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/prince.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=7622210449283">Prince</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/BN.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3061990143365">BN</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/ber-ready.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=8000500310427">Biscuit nutella</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/tuc.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=5410041435702">TUC</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/mikado.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3017760686792">Mikado</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/oreo.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=7622300336738">Oreo</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/barquette.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3017760038331">Barquette de LU</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/ours.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3048282322646">Ours de LU</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/speculoos.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=5410126716016">Spéculoos</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/kinder.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=4008400828121">Kinder</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/ecolier.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=7622210421968">Ecolier</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/kinderbueno.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=8000500290408">Kinder Bueno</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/madeleine.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3178530410105">Petite madeleine de St Michel</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/cookiebm.png" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3178530407396">Cookie de Bonne Maman</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/pepito.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3048282900646">Pepito pepite</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/beready.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=8000500223369">Be-Ready de nutella</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/palets bretons.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=20093716">Palais bretons</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/petitbeurre.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=7622210988034">Petit beurre de LU</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/delichoc.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3116430216342">Delichoc</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/la paille d'or.jpg" alt="Image" width="50%" height="auto">
-            <a href="./biscuittype.html?id=3017760544795">La paille d'or</a>
-        </div>
-    </div>
+    <div class="container" id="biscuit-list"></div>
 
     <!-- Section pour l'erreur 404 -->
     <div id="error-page" style="display: none;">
         <h2>Error 404, Not Found</h2>
-        <img src="../image/biscuit.gif" alt="Bisc
+        <img src="../image/biscuit.gif" alt="Biscuit qui tourne">
+    </div>
+
+    <!-- Menu contextuel pour le tri -->
+    <div id="context-menu" class="context-menu">
+        <div class="context-menu-item" onclick="sortByName()">Trier par ordre alphabétique</div>
+        <div class="context-menu-item" onclick="sortBySugar()">Trier par quantité de sucre</div>
+    </div>
+
+    <script src="./biscuits.js"></script>
+    <script>
+        const biscuitsHtml = biscuits.products.map(function(biscuit) {
+            return `<div class="list-item">
+                <img src="${biscuit.image_front_url}" alt="Image" width="50%" height="auto">
+                <a href="./biscuittype.html?id=${biscuit.code}">${biscuit.product_name}</a><br>
+                <p> ${biscuit.nutriments.sugars_100g}g </p>
+            </div>`;
+        });
+
+        const biscuitsList = document.querySelector("#biscuit-list");
+        biscuitsList.innerHTML = biscuitsHtml.join('');
+
+        const searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.get("search")) {
+            search(searchParams.get("search"));
+        }
+
+        function onHandleSearch() {
+            const query = document.getElementById('search-bar').value.toLowerCase();
+            search(query);
+        }
+
+        function search(query) {
+            const items = document.querySelectorAll('.list-item');
+            let found = false;
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = '';
+                    found = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            if (!found) {
+                showNotFoundError();
+            } else {
+                hideNotFoundError();
+            }
+        }
+
+        function showNotFoundError() {
+            document.getElementById('biscuit-list').style.display = 'none';
+            document.getElementById('error-page').style.display = 'block';
+        }
+
+        function hideNotFoundError() {
+            document.getElementById('biscuit-list').style.display = 'block';
+            document.getElementById('error-page').style.display = 'none';
+        }
+
+        // Fonction pour afficher le menu contextuel
+        const filterBtn = document.getElementById('filter-btn');
+        const contextMenu = document.getElementById('context-menu');
+
+        filterBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            contextMenu.style.top = event.pageY + 'px';
+            contextMenu.style.left = event.pageX + 'px';
+            contextMenu.style.display = 'block';
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!contextMenu.contains(event.target) && event.target !== filterBtn) {
+                contextMenu.style.display = 'none';
+            }
+        });
+
+        function sortByName() {
+            biscuits.products.sort((a, b) => a.product_name.localeCompare(b.product_name));
+            updateBiscuitList();
+        }
+
+        function sortBySugar() {
+            biscuits.products.sort((a, b) => a.nutriments.sugars_100g - b.nutriments.sugars_100g);
+            updateBiscuitList();
+        }
+
+        function updateBiscuitList() {
+            const sortedBiscuitsHtml = biscuits.products.map(function(biscuit) {
+                return `<div class="list-item">
+                    <img src="${biscuit.image_front_url}" alt="Image" width="50%" height="auto">
+                    <a href="./biscuittype.html?id=${biscuit.code}">${biscuit.product_name}</a><br>
+                    <p> ${biscuit.nutriments.sugars_100g}g </p>
+                </div>`;
+            });
+            biscuitsList.innerHTML = sortedBiscuitsHtml.join('');
+        }
+    </script>
+</body>
+</html>
