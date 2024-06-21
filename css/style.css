@@ -151,15 +151,17 @@ body {
     align-items: center;
     flex-wrap: wrap;
     box-sizing: border-box;
-    justify-content: space-between;
 }
 
 .container-h>* {
     padding: 10px;
 }
 
+.container-h .logo {
+    flex-grow: 1;
+}
 .container_header img {
-    max-width: 80%;
+    max-width: 300px;
 }
 
 #biscuit-list {
