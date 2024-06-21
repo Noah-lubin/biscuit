@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
+	<title>Creespy Biscuit</title>
+	<meta name="description" content="Le site de référence des meilleurs biscuits du monde">
 	<link rel="stylesheet" href="./css/stylecva.css">
 </head>
 <style>
@@ -31,28 +32,20 @@
 
 <body>
 	<!-- head -->
-	<div class="container_header">
-		<a href="index.html">
-			<div class="container_item">
-				<img src="./image/home.png" alt="title">
-			</div>
-		</a>
-		<a href="index.html">
-			<div class="container_item">
-				<img src="./image/title.png" alt="home" width="auto" height="75px">
-			</div>
-		</a>
-		<div class="container_item">
-			<form action="javascript:void(0);" onsubmit="onHandleSearch()">
-				<input type="search" id="search-bar" placeholder="Rechercher..." />
-				<input type="submit" value="ok" />
-			</form>
-		</div>
-		<div class="container_item">
-			<img src="./image/filtre.png" alt="filtre">
-		</div><br>
-	</div><br><br><br>
-
+	<header class="container_header">
+        <div class="container-h">
+          <a href="index.html"><img src="./image/title.png" alt="home"></a>
+        <div class="container_item">
+            <form action="javascript:void(0);" onsubmit="onHandleSearch()">
+                <input type="search" id="search-bar" placeholder="Rechercher..." />
+                <input type="submit" value="ok" />
+            </form>
+        </div>
+        <div class="container_item">
+            <img src="./image/filtre.png" alt="filtre" id="filter-btn">
+        </div>
+      </div>
+    </header>
 	<!-- titre -->
 	<h1 id="title"></h1>
 	<div class="container_image">

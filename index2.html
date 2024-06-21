@@ -17,126 +17,135 @@
         }
     </script>
 </head><body>
-    <!-- head -->
+ <!-- head -->
     <div class="container_header">
-        <a href="index2.html">
+        <a href="index.html">
             <div class="container_item">
-                <img src="../image/home.png" alt="home">
+                <img src="../image/home.png" alt="title">
             </div>
         </a>
-        <a href="index2.html">
+        <a href="index.html">
             <div class="container_item">
-                <img src="../image/title.png" alt="title" width="auto" height="75px">
+                <img src="../image/title.png" alt="home" width="auto" height="75px">
             </div>
         </a>
         <div class="container_item">
-            <form onsubmit="onHandleSearch(); return false;">
+            <form action="javascript:void(0);" onsubmit="onHandleSearch()">
                 <input type="search" id="search-bar" placeholder="Rechercher..." />
                 <input type="submit" value="ok" />
             </form>
         </div>
         <div class="container_item">
-            <img src="../image/filtre.png" alt="filtre" id="filter-icon">
+            <img src="../image/filtre.png" alt="filtre" id="filter-btn">
         </div><br>
     </div><br><br><br>
-
+    
     <!-- liste -->
-    <div class="container" id="biscuit-list">
-        <div class="list-item">
-            <img src="./image/grannola.jpg" alt="Granola" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=7622210601988">Granola</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/napolitain.jpg" alt="Napolitain" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=7622201809638">Napolitain</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/granola.jpg" alt="Cookie Granola" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=3017760756198">Cookie Granola</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/snickers.png" alt="Snickers" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=5000159461122">Snickers</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/prince.jpg" alt="Prince" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=7622210449283">Prince</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/bn.jpg" alt="BN" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=3061990143365">BN</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/biscuit-nutella.jpg" alt="Biscuit nutella" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=8000500310427">Biscuit nutella</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/tuc.jpg" alt="TUC" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=5410041435702">TUC</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/mikado.jpg" alt="Mikado" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=3017760686792">Mikado</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/oreo.jpg" alt="Oreo" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=7622300336738">Oreo</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/barquette-lu.jpg" alt="Barquette de LU" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=3017760038331">Barquette de LU</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/ours-lu.jpg" alt="Ours de LU" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=3048282322646">Ours de LU</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/speculoos.jpg" alt="Spéculoos" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=5410126716016">Spéculoos</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/kinder.jpg" alt="Kinder" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=4008400828121">Kinder</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/ecolier.jpg" alt="Ecolier" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=7622210421968">Ecolier</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/kinder-bueno.jpg" alt="Kinder Bueno" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=8000500290408">Kinder Bueno</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/madeleine-st-michel.jpg" alt="Petite madeleine de St Michel" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=3178530410105">Petite madeleine de St Michel</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/cookie-bonne-maman.jpg" alt="Cookie de Bonne Maman" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=3178530407396">Cookie de Bonne Maman</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/pepito-pepite.jpg" alt="Pepito pepite" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=3048282900646">Pepito pepite</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/be-ready.jpg" alt="Be-Ready de nutella" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=8000500223369">Be-Ready de nutella</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/palais-bretons.jpg" alt="Palais bretons" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=20093716">Palais bretons</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/petit-beurre.jpg" alt="Petit beurre de LU" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=7622210988034">Petit beurre de LU</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/delichoc.jpg" alt="Delichoc" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=3116430216342">Delichoc</a>
-        </div>
-        <div class="list-item">
-            <img src="./image/paille-or.jpg" alt="La paille d'or" width="50%" height="auto">
-            <a href="./biscuittype2.html?id=3017760544795">La paille d'or</a>
-        </div>
-    </div></body>
+    <div class="container" id="biscuit-list"></div>
+
+    <!-- Section pour l'erreur 404 -->
+    <div id="error-page" style="display: none;">
+        <h2>Error 404, Not Found</h2>
+        <img src="../image/biscuit.gif" alt="Biscuit qui tourne">
+    </div>
+
+    <!-- Menu contextuel pour le tri -->
+    <div id="context-menu" class="context-menu">
+        <div class="context-menu-item" onclick="sortByName()">Trier par ordre alphabétique</div>
+        <div class="context-menu-item" onclick="sortBySugar()">Trier par quantité de sucre</div>
+    </div>
+
+    <script src="./biscuits.js"></script>
+    <script>
+        const biscuitsHtml = biscuits.products.map(function(biscuit) {
+            return `<div class="list-item">
+                <img src="${biscuit.image_front_url}" alt="Image" width="50%" height="auto">
+                <a href="./biscuittype.html?id=${biscuit.code}">${biscuit.product_name}</a><br>
+                <p> ${biscuit.nutriments.sugars_100g}g </p>
+            </div>`;
+        });
+
+        const biscuitsList = document.querySelector("#biscuit-list");
+        biscuitsList.innerHTML = biscuitsHtml.join('');
+
+        const searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.get("search")) {
+            search(searchParams.get("search"));
+        }
+
+        function onHandleSearch() {
+            const query = document.getElementById('search-bar').value.toLowerCase();
+            search(query);
+        }
+
+        function search(query) {
+            const items = document.querySelectorAll('.list-item');
+            let found = false;
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = '';
+                    found = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            if (!found) {
+                showNotFoundError();
+            } else {
+                hideNotFoundError();
+            }
+        }
+
+        function showNotFoundError() {
+            document.getElementById('biscuit-list').style.display = 'none';
+            document.getElementById('error-page').style.display = 'block';
+        }
+
+        function hideNotFoundError() {
+            document.getElementById('biscuit-list').style.display = 'block';
+            document.getElementById('error-page').style.display = 'none';
+        }
+
+        // Fonction pour afficher le menu contextuel
+        const filterBtn = document.getElementById('filter-btn');
+        const contextMenu = document.getElementById('context-menu');
+
+        filterBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            contextMenu.style.top = event.pageY + 'px';
+            contextMenu.style.left = event.pageX + 'px';
+            contextMenu.style.display = 'block';
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!contextMenu.contains(event.target) && event.target !== filterBtn) {
+                contextMenu.style.display = 'none';
+            }
+        });
+
+        function sortByName() {
+            biscuits.products.sort((a, b) => a.product_name.localeCompare(b.product_name));
+            updateBiscuitList();
+        }
+
+        function sortBySugar() {
+            biscuits.products.sort((a, b) => a.nutriments.sugars_100g - b.nutriments.sugars_100g);
+            updateBiscuitList();
+        }
+
+        function updateBiscuitList() {
+            const sortedBiscuitsHtml = biscuits.products.map(function(biscuit) {
+                return `<div class="list-item">
+                    <img src="${biscuit.image_front_url}" alt="Image" width="50%" height="auto">
+                    <a href="./biscuittype.html?id=${biscuit.code}">${biscuit.product_name}</a><br>
+                    <p> ${biscuit.nutriments.sugars_100g}g </p>
+                </div>`;
+            });
+            biscuitsList.innerHTML = sortedBiscuitsHtml.join('');
+        }
+    </script>
+</body>
 </html>
