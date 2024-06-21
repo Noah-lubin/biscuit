@@ -65,8 +65,8 @@
 		<ul id="liste_allergenes"></ul>
 	</div>
 	<div class="container_down">
-		<a href="./napolitain.html"><img src="./image/left-arrow - Copie.png" alt="home"></a>
-		<a href="./ours"><img src="./image/right-arrow.png" alt="home"></a>
+		<a href="" id="avant"><img src="./image/left-arrow - Copie.png" alt="home"></a>
+		<a href="" id="apres"><img src="./image/right-arrow.png" alt="home"></a>
 	</div>
 	<div class="container_text">
 		<p><U>Lubinaerd score* :</U></p>
@@ -82,8 +82,9 @@
 		</div>
 	</div>
 </body>
-
+<script src="./biscuits.js"></script>
 <script>
+	console.log(biscuits);
 	// Fonction pour gérer la soumission du formulaire de recherche
 	function onHandleSearch() {
 		const searchBar = document.getElementById('search-bar');
@@ -98,6 +99,20 @@
 	document.addEventListener('DOMContentLoaded', (event) => {
 		const searchParams = new URLSearchParams(window.location.search);
 		const id = searchParams.get("id");
+		var codeAvant = 0;
+		var codeApres = 0;
+		biscuits.products.forEach(function(biscuit, index) {
+			if (id == biscuit.code) {
+				const indexAvant = index == 0 ? biscuits.products.length - 1 : index-1;
+				const indexApres = index ==  biscuits.products.length - 1 ? 0 : index +1;
+				codeAvant = biscuits.products[indexAvant].code;
+				codeApres = biscuits.products[indexApres].code;
+			}
+		});
+		const lienAvant = document.querySelector("#avant");
+		lienAvant.setAttribute("href", `./biscuittype.html?id=${codeAvant}`);
+		const lienApres = document.querySelector("#apres");
+		lienApres.setAttribute("href", `./biscuittype.html?id=${codeApres}`);
 		if (id) {
 			const url = `https://world.openfoodfacts.org/api/v3/product/${id}.json`;
 			fetch(url).then(response => response.json()).then(response => {
